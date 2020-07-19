@@ -5,6 +5,7 @@ Returns: an integer
 def single_number(arr):
     # Your code here
     # A First-Pass Solution 
+    # Seems like my first-pass is also better solution =)
     arr.sort()
 
     for i in range(0, len(arr)):

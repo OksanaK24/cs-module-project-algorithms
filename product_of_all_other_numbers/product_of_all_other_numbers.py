@@ -2,18 +2,31 @@
 Input: a List of integers
 Returns: a List of integers
 '''
+# def product_of_all_other_numbers(arr):
+#     # Your code here
+#     # A First-Pass Solution
+#     new_arr = []
+#     for i in range(0, len(arr)):
+#         result = 1
+#         for j in range(0, len(arr)):
+#             if i != j:
+#                 result = result * arr[j]
+#             else:
+#                 continue
+#         new_arr.insert(i, result)
+#     return new_arr
+
+# Better solution? => not sure about time complexity
+import math 
 def product_of_all_other_numbers(arr):
-    # Your code here
-    # A First-Pass Solution
     new_arr = []
-    for i in range(0, len(arr)):
-        result = 1
-        for j in range(0, len(arr)):
-            if i != j:
-                result = result * arr[j]
-            else:
-                continue
-        new_arr.insert(i, result)
+    for i in range (0, len(arr)):
+        if i == 0:
+            new_arr.insert(i, math.prod(arr[i+1:]))
+        elif i == len(arr) - 1:
+            new_arr.insert(i, math.prod(arr[:i]))
+        else:
+            new_arr.insert(i, math.prod(arr[:i]) * math.prod(arr[i+1:]))
     return new_arr
 
 if __name__ == '__main__':
